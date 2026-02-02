@@ -19,5 +19,16 @@ if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   ament_lint_auto_find_test_dependencies()
 endif()
+add_executable(publisher_node src/publisher_node.cpp)
+
+ament_target_dependencies(publisher_node
+  rclcpp
+  std_msgs
+)
+
+install(TARGETS
+  publisher_node
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 ament_package()
